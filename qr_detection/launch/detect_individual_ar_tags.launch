@@ -1,12 +1,12 @@
 <launch>
 
     <!-- Launching the ar_track_alvar node for detecting the qr codes -->
-    <arg name="marker_size" default="158.1" />
+    <arg name="marker_size" default="15.0" />
     <arg name="max_new_marker_error" default="0.08" />
     <arg name="max_track_error" default="0.2" />
     <arg name="cam_image_topic" default="/sensors/camera1/image_raw" />
     <arg name="cam_info_topic" default="/sensors/camera1/camera_info"/>
-    <arg name="output_frame" default="chassis" />
+    <arg name="output_frame" default="camera_link2" />
 
     <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="false" output="screen">
         <param name="marker_size" type="double" value="$(arg marker_size)" />
