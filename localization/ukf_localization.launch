@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="robot_localization" type="ukf_localization_node" name="ukf_rover_localization" clear_params="true">
+    <rosparam command="load" file="$(find robot_localization)/params/ukf_template.yaml" />
+        <param name="odom0" value="/rover_diff_drive_controller/odom"/>
+        <param name="imu0" value="/sensors/imu_gazebo"/>
+        <param name="imu0_remove_gravitational_acceleration" value="true"/>
+
+  </node>
+</launch>
