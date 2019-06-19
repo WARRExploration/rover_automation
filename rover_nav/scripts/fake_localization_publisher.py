@@ -19,16 +19,17 @@ def fake_loc():
 	model_odom = Odometry()
 	model_odom.header = Header()
 	model_odom.header.frame_id = "fake_loc"
-	model_odom.child_frame_id = "base_link"	
+	model_odom.child_frame_id = "/map"	
 
 	rospy.init_node("fake_localization_generation")
 	
 	subscriber = rospy.Subscriber("/gazebo/model_states", ModelStates, generate_fake_localization)
 
-	r = rospy.Rate(1)
+	r = rospy.Rate(10)
 	pub = rospy.Publisher('base_pose_ground_truth', Odometry, queue_size=1)
 	while not rospy.is_shutdown():    
-		pub.publish(model_odom)
+                model_odom.header.stamp = rospy.get_rostime()
+                pub.publish(model_odom)
 		r.sleep()
 
 	rospy.spin()
