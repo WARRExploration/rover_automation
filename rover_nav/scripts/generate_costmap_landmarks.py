@@ -8,7 +8,7 @@ import os
 from rospkg import RosPack
 import cv2
 
-# use files relative to rover_sim and rover_automation
+# use files relative to rover_sim and rover_nav
 rospack = RosPack()
 rover_sim_dir = rospack.get_path('rover_sim')
 rover_nav_dir = rospack.get_path('rover_nav')

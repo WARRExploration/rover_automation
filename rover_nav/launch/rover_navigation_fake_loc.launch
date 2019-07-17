@@ -1,7 +1,7 @@
 <launch>
 	<master auto="start"/>
 	<!-- Run the map server --> 
- 	<node name="map_server" pkg="map_server" type="map_server" args="$(find rover_nav)/envs/steepness.yaml"/>
+ 	<node name="map_server" pkg="map_server" type="map_server" args="$(find rover_nav)/envs/costmap.yaml"/>
   	
 	<node name="fake_localization" pkg="fake_localization" type="fake_localization" output="screen" />
 	<node name="fake_localization_publisher" pkg="rover_nav" type="fake_localization_publisher.py" output="screen" />
